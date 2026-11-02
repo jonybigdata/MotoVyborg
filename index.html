@@ -189,5 +189,47 @@
       } else elements.forEach(el => el.classList.add('visible'));
     })();
   </script>
+  
+<style>
+  #backToTop {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    width: 52px;
+    height: 52px;
+    border: none;
+    border-radius: 50%;
+    background: #ff6633;
+    color: white;
+    font-size: 26px;
+    cursor: pointer;
+    display: none;
+    z-index: 1000;
+    box-shadow: 0 4px 15px rgba(0,0,0,.3);
+  }
+  #backToTop:hover {
+    background: #e65320;
+  }
+</style>
+
+<button id="backToTop" type="button"
+        aria-label="Вернуться наверх">↑</button>
+
+<script>
+  const backToTop = document.getElementById('backToTop');
+
+  window.addEventListener('scroll', () => {
+    backToTop.style.display =
+      window.scrollY > 300 ? 'block' : 'none';
+  });
+
+  backToTop.addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
+</script>
+
 </body>
 </html>
